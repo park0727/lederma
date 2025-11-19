@@ -1,0 +1,12 @@
+---
+import Home from "../../components/pages/Home.astro";
+import { languages } from "../../i18n/ui";
+
+export function getStaticPaths() {
+    return Object.keys(languages)
+        .filter((lang) => lang !== "ko")
+        .map((lang) => ({ params: { lang } }));
+}
+---
+
+<Home />

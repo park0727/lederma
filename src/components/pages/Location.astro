@@ -1,0 +1,121 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = Astro.currentLocale || "ko";
+const t = useTranslations(lang as any);
+---
+
+<PageLayout title={`${t("nav.location")} - ${t("site.title")}`}>
+    <div class="container">
+        <h1 class="page-title">{t("nav.location")}</h1>
+
+        <div class="location-grid">
+            <div class="map-section">
+                <!-- Map Placeholder -->
+                <div class="map-placeholder">
+                    지도 영역 (카카오맵/네이버맵 연동 예정)
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-item">
+                    <h3>{t("location.address.title")}</h3>
+                    <p>서울특별시 강남구 도산대로 ... (상세 주소)</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>{t("location.transport.title")}</h3>
+                    <p>
+                        <strong>{t("location.transport.subway")}:</strong> 3호선
+                        압구정역 3번 출구 도보 5분
+                    </p>
+                    <p>
+                        <strong>{t("location.transport.bus")}:</strong> OO정류장
+                        하차
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h3>{t("location.hours.title")}</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <strong>{t("home.schedule.weekdays")}:</strong> 10:00
+                            - 20:00
+                        </li>
+                        <li>
+                            <strong>{t("home.schedule.saturday")}:</strong> 10:00
+                            - 16:00
+                        </li>
+                        <li>
+                            <strong>{t("home.schedule.lunch")}:</strong> 13:00 -
+                            14:00
+                        </li>
+                        <li><strong>휴진:</strong> 일요일 및 공휴일</li>
+                    </ul>
+                </div>
+
+                <div class="info-item">
+                    <h3>{t("location.parking.title")}</h3>
+                    <p>
+                        {t("location.parking.desc")}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</PageLayout>
+
+<style>
+    .page-title {
+        text-align: center;
+        margin: 3rem 0;
+        font-size: 2.5rem;
+    }
+    .location-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+    .map-placeholder {
+        width: 100%;
+        height: 400px;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius);
+        color: #888;
+    }
+    .info-item {
+        margin-bottom: 2rem;
+    }
+    .info-item h3 {
+        color: var(--primary);
+        border-left: 3px solid var(--accent);
+        padding-left: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    .hours-list {
+        list-style: none;
+        padding: 0;
+    }
+    .hours-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        .location-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .map-placeholder {
+            height: 300px;
+        }
+    }
+</style>

@@ -1,0 +1,93 @@
+---
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { useTranslations } from "../../../i18n/utils";
+
+const lang = Astro.currentLocale || "ko";
+const t = useTranslations(lang as any);
+
+const categories = [
+    {
+        title: t("treatments.lifting.title"),
+        items: ["울쎄라", "써마지", "인모드", "슈링크", "실리프팅"],
+    },
+    {
+        title: t("treatments.pigment.title"),
+        items: ["기미/잡티 레이저", "토닝", "점제거", "홍조 치료"],
+    },
+    {
+        title: t("treatments.acne.title"),
+        items: ["여드름 스케일링", "PDT", "프락셀", "모공 축소"],
+    },
+    {
+        title: t("treatments.petit.title"),
+        items: ["보톡스", "필러", "윤곽주사", "스킨부스터"],
+    },
+];
+---
+
+<PageLayout title={`${t("nav.treatments")} - ${t("site.title")}`}>
+    <div class="container">
+        <h1 class="page-title">{t("nav.treatments")}</h1>
+        <div class="treatment-categories">
+            {
+                categories.map((category) => (
+                    <section class="category-section">
+                        <h2>{category.title}</h2>
+                        <div class="treatment-list">
+                            {category.items.map((item) => (
+                                <div class="treatment-item">
+                                    <h3>{item}</h3>
+                                    <p>{t("treatments.desc.placeholder")}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                ))
+            }
+        </div>
+    </div>
+</PageLayout>
+
+<style>
+    .page-title {
+        text-align: center;
+        margin: 3rem 0;
+        font-size: 2.5rem;
+    }
+    .category-section {
+        margin-bottom: 4rem;
+    }
+    .category-section h2 {
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        color: var(--primary-dark);
+    }
+    .treatment-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .treatment-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        box-shadow: var(--box-shadow);
+        border: 1px solid transparent;
+        transition: all 0.3s;
+    }
+    .treatment-item:hover {
+        border-color: var(--primary-light);
+        transform: translateY(-3px);
+    }
+    .treatment-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .treatment-item p {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+    }
+</style>

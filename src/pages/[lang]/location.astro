@@ -1,0 +1,15 @@
+---
+import { languages } from "../../i18n/ui";
+import LocationPage from "../../components/pages/Location.astro";
+
+export function getStaticPaths() {
+    return Object.keys(languages)
+        .map((lang) => {
+            if (lang === "ko") return undefined;
+            return { params: { lang } };
+        })
+        .filter(Boolean);
+}
+---
+
+<LocationPage />

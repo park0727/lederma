@@ -1,0 +1,112 @@
+---
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { useTranslations } from "../../../i18n/utils";
+
+const lang = Astro.currentLocale || "ko";
+const t = useTranslations(lang as any);
+
+const prices = [
+    { category: "리프팅", name: "인모드 FX (1부위)", price: "99,000원" },
+    { category: "리프팅", name: "슈링크 유니버스 (300샷)", price: "150,000원" },
+    { category: "보톡스", name: "주름 보톡스 (1부위)", price: "30,000원" },
+    { category: "보톡스", name: "사각턱 보톡스", price: "50,000원" },
+    { category: "피부관리", name: "아쿠아필", price: "40,000원" },
+    { category: "피부관리", name: "LDM 물방울 리프팅", price: "60,000원" },
+];
+---
+
+<PageLayout title={`${t("nav.price")} - ${t("site.title")}`}>
+    <div class="container">
+        <h1 class="page-title">{t("nav.price")}</h1>
+
+        <div class="price-table-container">
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>분류</th>
+                        <th>시술명</th>
+                        <th>가격 (VAT 별도)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        prices.map((item) => (
+                            <tr>
+                                <td>{item.category}</td>
+                                <td>{item.name}</td>
+                                <td class="price">{item.price}</td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <p class="vat-notice">{t("price.vat.notice")}</p>
+    </div>
+</PageLayout>
+
+<style>
+    .page-title {
+        text-align: center;
+        margin: 3rem 0;
+        font-size: 2.5rem;
+    }
+    .price-table-container {
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    .price-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .price-table th,
+    .price-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    .price-table th {
+        background-color: var(--primary);
+        color: white;
+        font-weight: 500;
+    }
+    .price-table tr:last-child td {
+        border-bottom: none;
+    }
+    .price-table tr:hover {
+        background-color: #f9f9f9;
+    }
+    .price {
+        font-weight: bold;
+        color: var(--primary-dark);
+    }
+    .vat-notice {
+        text-align: right;
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        .price-table-container {
+            overflow-x: auto;
+        }
+        .price-table {
+            min-width: 500px; /* Ensure table doesn't squash too much */
+        }
+        /* Revert previous hiding logic if present, or keep it if preferred.
+           Horizontal scroll is usually better for data tables. */
+        .price-table th,
+        .price-table td {
+            padding: 0.75rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>

@@ -1,0 +1,116 @@
+---
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { useTranslations } from "../../../i18n/utils";
+
+const lang = Astro.currentLocale || "ko";
+const t = useTranslations(lang as any);
+
+const equipment = [
+    {
+        name: t("equipment.pico.name"),
+        description: t("equipment.pico.desc"),
+        tags: ["색소", "문신제거", "모공"],
+    },
+    {
+        name: t("equipment.rf.name"),
+        description: t("equipment.rf.desc"),
+        tags: ["리프팅", "탄력", "주름"],
+    },
+    {
+        name: t("equipment.co2.name"),
+        description: t("equipment.co2.desc"),
+        tags: ["점제거", "검버섯", "사마귀"],
+    },
+    {
+        name: t("equipment.ldm.name"),
+        description: t("equipment.ldm.desc"),
+        tags: ["보습", "진정", "재생"],
+    },
+];
+---
+
+<PageLayout title={`${t("nav.equipment")} - ${t("site.title")}`}>
+    <div class="container">
+        <h1 class="page-title">{t("nav.equipment")}</h1>
+
+        <div class="equipment-grid">
+            {
+                equipment.map((item) => (
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <span>{item.name} 이미지</span>
+                        </div>
+                        <div class="equipment-info">
+                            <h3>{item.name}</h3>
+                            <p>{item.description}</p>
+                            <div class="tags">
+                                {item.tags.map((tag) => (
+                                    <span class="tag">#{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</PageLayout>
+
+<style>
+    .page-title {
+        text-align: center;
+        margin: 3rem 0;
+        font-size: 2.5rem;
+    }
+    .equipment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .equipment-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        transition: transform 0.3s ease;
+    }
+    .equipment-card:hover {
+        transform: translateY(-5px);
+    }
+    .equipment-img {
+        height: 200px;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #888;
+    }
+    .equipment-info {
+        padding: 1.5rem;
+    }
+    .equipment-info h3 {
+        color: var(--primary-dark);
+        margin-bottom: 0.5rem;
+    }
+    .equipment-info p {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        height: 3em; /* Limit lines roughly */
+        overflow: hidden;
+    }
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .tag {
+        background: var(--bg-light);
+        color: var(--primary);
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+</style>

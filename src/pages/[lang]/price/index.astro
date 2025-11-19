@@ -1,0 +1,15 @@
+---
+import { languages } from "../../../i18n/ui";
+import Price from "../../../components/pages/price/Index.astro";
+
+export function getStaticPaths() {
+    return Object.keys(languages)
+        .map((lang) => {
+            if (lang === "ko") return undefined;
+            return { params: { lang } };
+        })
+        .filter(Boolean);
+}
+---
+
+<Price />
