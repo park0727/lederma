@@ -6,12 +6,36 @@ const lang = Astro.currentLocale || "ko";
 const t = useTranslations(lang as any);
 
 const prices = [
-    { category: "리프팅", name: "인모드 FX (1부위)", price: "99,000원" },
-    { category: "리프팅", name: "슈링크 유니버스 (300샷)", price: "150,000원" },
-    { category: "보톡스", name: "주름 보톡스 (1부위)", price: "30,000원" },
-    { category: "보톡스", name: "사각턱 보톡스", price: "50,000원" },
-    { category: "피부관리", name: "아쿠아필", price: "40,000원" },
-    { category: "피부관리", name: "LDM 물방울 리프팅", price: "60,000원" },
+    {
+        category: t("price.category.lifting"),
+        name: t("price.item.inmode"),
+        price: "99,000원",
+    },
+    {
+        category: t("price.category.lifting"),
+        name: t("price.item.shurink"),
+        price: "150,000원",
+    },
+    {
+        category: t("price.category.botox"),
+        name: t("price.item.botox_wrinkle"),
+        price: "30,000원",
+    },
+    {
+        category: t("price.category.botox"),
+        name: t("price.item.botox_jaw"),
+        price: "50,000원",
+    },
+    {
+        category: t("price.category.skincare"),
+        name: t("price.item.aquapeel"),
+        price: "40,000원",
+    },
+    {
+        category: t("price.category.skincare"),
+        name: t("price.item.ldm"),
+        price: "60,000원",
+    },
 ];
 ---
 
@@ -23,9 +47,9 @@ const prices = [
             <table class="price-table">
                 <thead>
                     <tr>
-                        <th>분류</th>
-                        <th>시술명</th>
-                        <th>가격 (VAT 별도)</th>
+                        <th>{t("price.table.category")}</th>
+                        <th>{t("price.table.name")}</th>
+                        <th>{t("price.table.price")}</th>
                     </tr>
                 </thead>
                 <tbody>

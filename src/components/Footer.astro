@@ -1,27 +1,33 @@
 ---
 const today = new Date();
 import { SITE_TITLE } from "../consts";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || "ko";
+const t = useTranslations(lang as any);
 ---
 
 <footer>
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-brand">
-				<h3>{SITE_TITLE}</h3>
-				<p>당신의 아름다움을 위한 프리미엄 피부과</p>
+				<h3>{t("site.title")}</h3>
+				<p>{t("site.description")}</p>
 			</div>
 			<div class="footer-info">
 				<p>
-					<strong>주소:</strong> 서울특별시 강남구 (상세 주소 업데이트
-					필요)
+					<strong>{t("footer.address.label")}:</strong>
+					{t("footer.address.value")}
 				</p>
-				<p><strong>전화:</strong> 02-0000-0000</p>
-				<p><strong>사업자등록번호:</strong> 000-00-00000</p>
+				<p><strong>{t("footer.phone.label")}:</strong> 02-0000-0000</p>
+				<p>
+					<strong>{t("footer.license.label")}:</strong> 000-00-00000
+				</p>
 			</div>
 		</div>
 		<div class="copyright">
 			&copy; {today.getFullYear()}
-			{SITE_TITLE}. All rights reserved.
+			{t("site.title")}. {t("footer.copyright")}
 		</div>
 	</div>
 </footer>

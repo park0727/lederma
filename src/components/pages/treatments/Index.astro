@@ -8,19 +8,40 @@ const t = useTranslations(lang as any);
 const categories = [
     {
         title: t("treatments.lifting.title"),
-        items: ["울쎄라", "써마지", "인모드", "슈링크", "실리프팅"],
+        items: [
+            t("treatments.lifting.ulthera"),
+            t("treatments.lifting.thermage"),
+            t("treatments.lifting.inmode"),
+            t("treatments.lifting.shurink"),
+            t("treatments.lifting.thread"),
+        ],
     },
     {
         title: t("treatments.pigment.title"),
-        items: ["기미/잡티 레이저", "토닝", "점제거", "홍조 치료"],
+        items: [
+            t("treatments.pigment.laser"),
+            t("treatments.pigment.toning"),
+            t("treatments.pigment.mole"),
+            t("treatments.pigment.redness"),
+        ],
     },
     {
         title: t("treatments.acne.title"),
-        items: ["여드름 스케일링", "PDT", "프락셀", "모공 축소"],
+        items: [
+            t("treatments.acne.scaling"),
+            t("treatments.acne.pdt"),
+            t("treatments.acne.fraxel"),
+            t("treatments.acne.pore"),
+        ],
     },
     {
         title: t("treatments.petit.title"),
-        items: ["보톡스", "필러", "윤곽주사", "스킨부스터"],
+        items: [
+            t("treatments.petit.botox"),
+            t("treatments.petit.filler"),
+            t("treatments.petit.contour"),
+            t("treatments.petit.skinbooster"),
+        ],
     },
 ];
 ---
