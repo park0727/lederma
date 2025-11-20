@@ -29,9 +29,10 @@ import { SITE_TITLE } from "../consts";
 <style>
 	footer {
 		padding: 4em 0 2em;
-		background: var(--primary-dark);
-		color: var(--white);
+		background: #f5f2ed;
+		color: var(--text-main);
 		margin-top: auto;
+		border-top: 1px solid rgba(139, 115, 85, 0.1);
 	}
 	.footer-content {
 		display: flex;
@@ -41,23 +42,28 @@ import { SITE_TITLE } from "../consts";
 		margin-bottom: 2em;
 	}
 	.footer-brand h3 {
-		color: var(--accent);
+		color: var(--primary-dark);
 		margin-bottom: 0.5em;
+		font-size: 1.5rem;
 	}
 	.footer-brand p {
-		color: var(--primary-light);
+		color: var(--primary);
 		margin: 0;
+		font-weight: 500;
 	}
 	.footer-info p {
 		margin: 0.5em 0;
-		color: #ccc;
+		color: var(--text-light);
 		font-size: 0.9em;
+	}
+	.footer-info strong {
+		color: var(--primary-dark);
 	}
 	.copyright {
 		text-align: center;
 		padding-top: 2em;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		color: #888;
+		border-top: 1px solid rgba(139, 115, 85, 0.15);
+		color: #999;
 		font-size: 0.85em;
 	}
 	@media (max-width: 720px) {

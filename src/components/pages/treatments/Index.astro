@@ -32,10 +32,10 @@ const categories = [
             {
                 categories.map((category) => (
                     <section class="category-section">
-                        <h2>{category.title}</h2>
-                        <div class="treatment-list">
+                        <h2 class="scroll-reveal">{category.title}</h2>
+                        <div class="treatment-list scroll-reveal-group">
                             {category.items.map((item) => (
-                                <div class="treatment-item">
+                                <div class="treatment-item scroll-reveal">
                                     <h3>{item}</h3>
                                     <p>{t("treatments.desc.placeholder")}</p>
                                 </div>

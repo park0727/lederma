@@ -11,20 +11,20 @@ const t = useTranslations(lang as any);
         <h1 class="page-title">{t("nav.location")}</h1>
 
         <div class="location-grid">
-            <div class="map-section">
+            <div class="map-section scroll-reveal">
                 <!-- Map Placeholder -->
                 <div class="map-placeholder">
                     지도 영역 (카카오맵/네이버맵 연동 예정)
                 </div>
             </div>
 
-            <div class="info-section">
-                <div class="info-item">
+            <div class="info-section scroll-reveal-group">
+                <div class="info-item scroll-reveal">
                     <h3>{t("location.address.title")}</h3>
                     <p>서울특별시 강남구 도산대로 ... (상세 주소)</p>
                 </div>
 
-                <div class="info-item">
+                <div class="info-item scroll-reveal">
                     <h3>{t("location.transport.title")}</h3>
                     <p>
                         <strong>{t("location.transport.subway")}:</strong> 3호선
@@ -36,7 +36,7 @@ const t = useTranslations(lang as any);
                     </p>
                 </div>
 
-                <div class="info-item">
+                <div class="info-item scroll-reveal">
                     <h3>{t("location.hours.title")}</h3>
                     <ul class="hours-list">
                         <li>
@@ -55,7 +55,7 @@ const t = useTranslations(lang as any);
                     </ul>
                 </div>
 
-                <div class="info-item">
+                <div class="info-item scroll-reveal">
                     <h3>{t("location.parking.title")}</h3>
                     <p>
                         {t("location.parking.desc")}

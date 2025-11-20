@@ -14,10 +14,10 @@ function getPath(path: string) {
 <PageLayout>
 	<section class="hero">
 		<div class="hero-overlay"></div>
-		<div class="container hero-content">
-			<h1 set:html={t("home.hero.title")} />
-			<p set:html={t("home.hero.subtitle")} />
-			<div class="hero-buttons">
+		<div class="container hero-content scroll-reveal-group">
+			<h1 class="scroll-reveal" set:html={t("home.hero.title")} />
+			<p class="scroll-reveal" set:html={t("home.hero.subtitle")} />
+			<div class="hero-buttons scroll-reveal">
 				<a href={getPath("/treatments")} class="btn"
 					>{t("home.hero.button.treatments")}</a
 				>
@@ -29,22 +29,22 @@ function getPath(path: string) {
 	</section>
 
 	<section class="section container">
-		<div class="grid-3">
-			<div class="card">
+		<div class="grid-3 scroll-reveal-group">
+			<div class="card scroll-reveal">
 				<h3>{t("home.section.staff.title")}</h3>
 				<p>{t("home.section.staff.desc")}</p>
 				<a href={getPath("/intro/staff")} class="link-arrow"
 					>{t("home.link.more")} &rarr;</a
 				>
 			</div>
-			<div class="card">
+			<div class="card scroll-reveal">
 				<h3>{t("home.section.treatments.title")}</h3>
 				<p>{t("home.section.treatments.desc")}</p>
 				<a href={getPath("/treatments")} class="link-arrow"
 					>{t("home.link.more")} &rarr;</a
 				>
 			</div>
-			<div class="card">
+			<div class="card scroll-reveal">
 				<h3>{t("home.section.equipment.title")}</h3>
 				<p>{t("home.section.equipment.desc")}</p>
 				<a href={getPath("/intro/equipment")} class="link-arrow"
@@ -56,8 +56,8 @@ function getPath(path: string) {
 
 	<section class="section bg-light">
 		<div class="container text-center">
-			<h2>{t("home.schedule.title")}</h2>
-			<div class="schedule-box">
+			<h2 class="scroll-reveal">{t("home.schedule.title")}</h2>
+			<div class="schedule-box scroll-reveal">
 				<div class="schedule-row">
 					<span>{t("home.schedule.weekdays")}</span>
 					<span>10:00 - 20:00</span>
@@ -81,10 +81,8 @@ function getPath(path: string) {
 		position: relative;
 		height: 600px;
 		background-color: #f0f0f0; /* Placeholder for image */
-		background-image: linear-gradient(
-				rgba(0, 0, 0, 0.3),
-				rgba(0, 0, 0, 0.3)
-			),
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
 			url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop");
 		background-size: cover;
 		background-position: center;

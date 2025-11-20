@@ -9,8 +9,9 @@ const t = useTranslations(lang as any);
 <PageLayout title={`${t("nav.about")} - ${t("site.title")}`}>
     <div class="container">
         <h1 class="page-title">{t("nav.about")}</h1>
+
         <section class="section">
-            <div class="content-box">
+            <div class="content-box scroll-reveal">
                 <h2>{t("about.philosophy.title")}</h2>
                 <p set:html={t("about.philosophy.content1")} />
                 <p set:html={t("about.philosophy.content2")} />
@@ -18,17 +19,17 @@ const t = useTranslations(lang as any);
         </section>
 
         <section class="section">
-            <h2>{t("about.gallery.title")}</h2>
-            <div class="gallery">
-                <div class="gallery-item">
+            <h2 class="scroll-reveal">{t("about.gallery.title")}</h2>
+            <div class="gallery scroll-reveal-group">
+                <div class="gallery-item scroll-reveal">
                     <div class="placeholder-img">대기실 이미지</div>
                     <p>{t("about.gallery.waiting")}</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item scroll-reveal">
                     <div class="placeholder-img">진료실 이미지</div>
                     <p>{t("about.gallery.treatment")}</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item scroll-reveal">
                     <div class="placeholder-img">관리실 이미지</div>
                     <p>{t("about.gallery.care")}</p>
                 </div>
